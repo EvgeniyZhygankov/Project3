@@ -1,0 +1,16 @@
+@import "e:/Женя/Учеба/frontend 08.19/Project3/styles.scss";
+
+section {
+    width: 25%;
+    > * {
+        width: 100%;
+    }
+}
+
+.links {
+    display: flex;
+}
+
+.btn {
+    margin:10px 10px 0 0;
+}

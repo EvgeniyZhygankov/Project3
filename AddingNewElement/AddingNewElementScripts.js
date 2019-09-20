@@ -9,11 +9,16 @@ function ComputerTypes_OnChange() {
             break;
 
         case "2":
-            alert(2);
+            
             break;
 
         default:
             alert("default");
             break;
     }
+}
+
+function Save_Click() {
+
+
 }
