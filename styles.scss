@@ -1,0 +1,97 @@
+@mixin font {
+    font-family: Montserrat;
+    font-style: normal;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 17px;
+    color: #37373F;
+}
+
+$clDarkRed: rgb(139, 9, 9);
+$clBlue: blue;
+$clWhite: white;
+$border: 3px solid rgb(27, 115, 247);
+$clDarkGray: rgb(46, 46, 46);
+$clLightGray: rgb(71, 71, 71);
+$clForFont: rgb(119, 119, 119);
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    @include font();
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: $clDarkGray;
+    color: $clForFont;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    margin-top: 100px;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 100%;
+    padding-top: 200px;
+}
+
+table {
+    border: $border;
+}
+
+tr:first-child {
+    background: rgb(26, 26, 26);
+}
+
+// tr:nth-child(even) {
+//     // background: $clBlue; 
+// }
+
+th, td {
+    padding: 15px;
+    // background: lightgray;
+}
+
+.btn {
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    border: $border;
+    color: $clForFont;
+    background-color: $clDarkGray;
+    &:hover {
+        cursor: default;
+        background-color: rgba($color: $clLightGray, $alpha: 1);
+        // box-shadow: 0 0 10px white;
+    }
+}
+
+select {
+    @include font();
+    // font-weight: 900;
+    border: $border;
+    background-color: $clDarkGray;
+    color: $clForFont;
+    height: 40px;
+}
+
