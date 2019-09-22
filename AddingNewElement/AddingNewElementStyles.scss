@@ -1,16 +1,60 @@
 @import "e:/Женя/Учеба/frontend 08.19/Project3/styles.scss";
 
 section {
-    width: 25%;
-    > * {
+    width: 30%;
+    align-self: flex-start;
+    margin-left: 28%;
+    align-items: flex-end;
+}
+
+select {
+    @include font();
+    // font-weight: 900;
+    border: $border;
+    background-color: $clDarkGray;
+    color: $clForFont;
+    height: 40px;
+    width: 100%;
+    option {
         width: 100%;
+        @include font();
     }
+}
+
+input[type="text"] {
+    @include font();
+    width: 100px;
+    background: $clDarkGray;
+    border: $border;
+    margin: 10px 0;
+    height: 30px;
+    flex-shrink: 0;
 }
 
 .links {
     display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    > a:last-child {
+        margin-right: 0;
+    }
 }
 
 .btn {
     margin:10px 10px 0 0;
+}
+
+.field {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    > p {
+        flex-shrink: 0;
+        margin-right: 5px;
+    }
+    >*:not(p) {
+        width: 400px;
+        margin: 0;
+    }
 }

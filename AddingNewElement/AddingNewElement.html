@@ -15,21 +15,71 @@
         </header>
         
         <section>
-            <select class="computerTypes" onchange="ComputerTypes_OnChange()">
-                <option value="0"></option>
-                <option value="1">Ультрабук</option>
-                <option value="2">Вычислительный сервер</option>
-            </select>
+            <div class="field">
+                <p>Тип компьютера:</p>
+                <select class="computerTypes">
+                    <!-- <option value="0" selected></option> -->
+                    <option value="1" selected>Ультрабук</option>
+                    <option value="2">Вычислительный сервер</option>
+                </select>
+            </div>
+            
+
+            
+            <div class="field">
+                <p>Процессор:</p>
+                <input type="text" id="CPInput">
+            </div>
+            <div class="field">
+                <p>Видеокарта:</p>
+                <input type="text" id="GPInput">
+            </div>
+            <div class="field">
+                <p>Материнская плата:</p>
+                <input type="text" id="MBInput">
+            </div>
+            <div class="field">
+                <p>Жесткий диск:</p>
+                <input type="text" id="HDInput">
+            </div>
+            <div class="field">
+                <p>Клавиатура:</p>
+                <input type="text" id="KBInput">
+            </div>
+            <div class="field">
+                <p>Мышь:</p>
+                <input type="text" id="MoInput">
+            </div>
+            <div class="field">
+                <p>Масштабирование:</p>
+                <input type="text" id="ScInput">
+            </div>
+
+            
+            <div class="field ultrabook">
+                <p>Название ультрабука:</p>
+                <input type="text" id="NMInput">
+            </div>
+            <div class="field ultrabook">
+                <p>Наличие сенсорного экрана:</p>
+                <input type="text" id="TSInput">
+            </div>
+
+            <div class="field calcServer">
+                <p>Тип охлаждения:</p>
+                <input type="text" id="CoolInput">
+            </div>
+            <div class="field calcServer">
+                <p>:</p>
+                <input type="text" id="Input">
+            </div>
+
             <div class="links">
-                <a onclick="Save_Click()" class="btn">Сохранить</a>
+                <a class="btn" id="Save">Сохранить</a>
                 <a href="/Project3/index.html" class="btn">Вернуться на главную страницу</a>
             </div>
         </section>
-
-        <footer>
-
-        </footer>
     </div>
-    <script src="AddingNewElementScripts.js"></script>
+    <script type="module" src="AddingNewElementScripts.js"></script>
 </body>
 </html>
