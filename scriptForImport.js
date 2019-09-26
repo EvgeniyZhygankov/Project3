@@ -65,7 +65,8 @@ export class Computer {
     }
 
     toString() {
-        return `${this.CP} ${this.GP} ${this.HardDrive} ${this.Motherboard} ${this.Keyboard} ${this.Mouse}`;
+
+        return `${this.ComputerType} ${this.CP} ${this.GP} ${this.HardDrive} ${this.Motherboard} ${this.Keyboard} ${this.Mouse} ${this.Scalability}`;
     }
 
     NamesOfAllProps() {
@@ -80,6 +81,11 @@ export class Computer {
 }
 
 export class Ultrabook extends Computer {
+
+    constructor() {
+
+        super();
+    }
 
     get Name() {
         return this._name;
@@ -97,6 +103,11 @@ export class Ultrabook extends Computer {
         this._TouchScreen = value;
     }
 
+    toString() {
+
+        return `${super.toString()} ${this.Name} ${this.TouchScreen}`;
+    }
+
     NamesOfAllProps() {
          
         let names = ["Название ультрабука", "Наличие сенсорного экрана"];
@@ -107,9 +118,10 @@ export class Ultrabook extends Computer {
 
 export class CalcServer extends Computer {
 
-    // constructor() {
-    //     super();
-    // }
+    constructor() {
+
+        super();
+    }
 
     get CoolingType() {
         return _CoolingType;
@@ -126,6 +138,11 @@ export class CalcServer extends Computer {
     // set (value) {
     //     this._ = value
     // }
+
+    toString() {
+
+        return `${super.toString()} ${this.CoolingType}`;
+    }
 
     NamesOfAllProps() {
          
@@ -144,3 +161,27 @@ export function CreateBtn(className, IdName, link, text) {
     btn.href = link;
     return btn;
 }
+
+export async function GETAsync() {
+
+    let response = await fetch("http://localhost:3000/computers");
+    let computers = await response.json();
+    return computers;
+}
+
+// export function GET() {
+
+//     var computers = [];
+//     let response = fetch("http://localhost:3000/computers")
+//     .then((res) => {
+//         res.json();
+//         // console.log(res);
+//     })
+//     .then((res) => {
+//         // computers = res.computers;
+//         // console.log(res);
+//     });
+//     // console.log(`response = ${response}`);
+//     console.log(response)
+//     return computers;
+// }

@@ -1,0 +1,42 @@
+{
+  "computers": [
+    {
+      "_name": "aw",
+      "_TouchScreen": "dawd",
+      "_ComputerType": "1",
+      "_CP": "wadaw",
+      "_GP": "awd",
+      "_Motherboard": "awd",
+      "_HardDrive": "awdaw",
+      "_Keyboard": "dawd",
+      "_Mouse": "a",
+      "_Scalability": "wdawd",
+      "id": 1
+    },
+    {
+      "_name": "",
+      "_TouchScreen": "",
+      "_ComputerType": "1",
+      "_CP": "",
+      "_GP": "",
+      "_Motherboard": "",
+      "_HardDrive": "",
+      "_Keyboard": "",
+      "_Mouse": "",
+      "_Scalability": "",
+      "id": 2
+    },
+    {
+      "_CoolingType": "",
+      "_ComputerType": "2",
+      "_CP": "",
+      "_GP": "",
+      "_Motherboard": "",
+      "_HardDrive": "",
+      "_Keyboard": "",
+      "_Mouse": "",
+      "_Scalability": "",
+      "id": 3
+    }
+  ]
+}

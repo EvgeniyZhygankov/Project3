@@ -101,7 +101,6 @@ function ComputerTypes_OnChange() {
 
 function Save_Click() {
 
-    console.log("save");
     let propNames = inputsNames();
     currentComputerType = computerTypes.options[computerTypes.selectedIndex].value;
     if (true) {
@@ -132,6 +131,17 @@ function Save_Click() {
         newComp.Mouse = propNames[5].value;
         newComp.Scalability = propNames[6].value;
 
-        console.log(JSON.stringify(newComp));
+        let request = fetch("http://localhost:3000/computers", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify(newComp)
+        })
+        .then((res) => { console.log(res); })
+        .catch((e) => { console.error(e); });
+
+         let computers = GET();
+         console.log(computers[0].id);
     }
 }

@@ -1,4 +1,4 @@
-import { Ultrabook, CalcServer, CreateBtn } from "./scriptForImport.js";
+import { Ultrabook, CalcServer, CreateBtn, GETAsync, Computer } from "./scriptForImport.js";
 
 function CreateTd(innerString) {
     
@@ -35,15 +35,58 @@ window.onload = function() {
     ultrabook.Name = "Samsung";
     ultrabook.CP = "Intel";
 
-    let computers = [];
-    computers.push(ultrabook);
-    computers.push(new CalcServer("text"));
-    
-    for (const key in ultrabook) {
-        console.log(key);
-    }
 
-    console.log(ultrabook.NamesOfAllProps())
+    // let computers = GET();
+
+    // console.log(computers.length);
+
+    // for (let i = 0; i < computers.length; i++) {
+        
+    //     table.appendChild(CreateTr(computers[i].toString().split(" "), i));
+    // }
+
+    GETAsync().then((computers) => {
+
+        for (let i = 0; i < computers.length; i++) { 
+        
+            let comp = new Computer();
+            comp = computers[i];
+            
+            switch (comp.ComputerType) {
+                
+                case 1:
+                        // let comp = new Ultrabook();
+                        // ultrabook = comp;
+
+                    break;
+            
+                case 2:
+                        // let comp = new Ultrabook();
+                        // ultrabook = comp;
+
+                    break;
+            }
+            table.appendChild(CreateTr(comp.toString().split(" "), i));
+        }
+    });
+    
+    
+
+    // GET().then((result) => {
+
+    //     for (let i = 0; i < result.length; i++) { 
+        
+    //         table.appendChild(CreateTr(result[i].toString().split(" "), i));
+    //     }
+    // });
+    
+    // console.log(computers);
+
+    // for (const key in ultrabook) {
+    //     console.log(key);
+    // }
+
+    // console.log(ultrabook.NamesOfAllProps())
 
     let columns = [ "Процессор", 
                     "Видеокарта", 
@@ -59,12 +102,6 @@ window.onload = function() {
         tHeadRow.appendChild(CreateTd(columns[i]));
     }
     table.appendChild(tHeadRow);
-
-
-    for (let i = 0; i < computers.length; i++) { 
-        
-        table.appendChild(CreateTr(computers[i].toString().split(" "), i));
-    }
 
 
     mainSection.appendChild(table);
