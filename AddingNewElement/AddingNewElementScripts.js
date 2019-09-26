@@ -52,7 +52,7 @@ const inputsNames = () => {
 
 
 
-window.onload = () => {
+window.onload = function() {
     
     computerTypes.addEventListener("change", ComputerTypes_OnChange);
     document.querySelector("#Save").addEventListener("click", Save_Click);
@@ -138,10 +138,9 @@ function Save_Click() {
             },
             body: JSON.stringify(newComp)
         })
-        .then((res) => { console.log(res); })
-        .catch((e) => { console.error(e); });
+        .then((res) => { console.log(res); });
 
-         let computers = GET();
-         console.log(computers[0].id);
+        //  let computers = GET();
+        //  console.log(computers[0].id);
     }
 }

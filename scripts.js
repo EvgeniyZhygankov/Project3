@@ -1,19 +1,25 @@
-import { Ultrabook, CalcServer, CreateBtn, GETAsync, Computer } from "./scriptForImport.js";
+import { CreateBtn, GETAsync } from "./scriptForImport.js";
 
-function CreateTd(innerString) {
+function CreateCell(type, innerString) {
     
-    let node = document.createElement("td");
+    let node = document.createElement(type);
     node.innerText = innerString;
     return node;
 }
 
-function CreateTr(arrayStrings, compId) {
-
+function CreateRow(cellType, columns) {
+    
     let tr = document.createElement("tr");
-    for (let i = 0; i < arrayStrings.length; i++) {
+    for (let i = 0; i < columns.length; i++) {
         
-        tr.appendChild(CreateTd(arrayStrings[i]))
+        tr.appendChild(CreateCell(cellType, columns[i]))
     }
+    return tr;
+}
+
+function CreateContentRow(innerStrings, compId) {
+
+    let tr = CreateRow("td", innerStrings);
 
     let tdActions = document.createElement("td");
     tdActions.appendChild(CreateBtn("btn", `Del${compId}`, "", "Удалить"));
@@ -25,84 +31,40 @@ function CreateTr(arrayStrings, compId) {
     return tr;
 }
 
-window.onload = function() {
+window.onload = function () {
 
-    let mainSection = document.querySelector("section");
-    let table = document.createElement("table");
-    let tHeadRow = document.createElement("tr");
-
-    let ultrabook = new Ultrabook();
-    ultrabook.Name = "Samsung";
-    ultrabook.CP = "Intel";
-
-
-    // let computers = GET();
-
-    // console.log(computers.length);
-
-    // for (let i = 0; i < computers.length; i++) {
-        
-    //     table.appendChild(CreateTr(computers[i].toString().split(" "), i));
-    // }
+    const mainSection = document.querySelector("section");
+    const table = document.createElement("table");
+    const columns = [ "Процессор", "Видеокарта", "Жесткий диск", "Материнская плата", "Клавиатура", "Мышь", "Масштабирование", "Действия"];
 
     GETAsync().then((computers) => {
 
         for (let i = 0; i < computers.length; i++) { 
         
-            let comp = new Computer();
-            comp = computers[i];
-            
-            switch (comp.ComputerType) {
-                
-                case 1:
-                        // let comp = new Ultrabook();
-                        // ultrabook = comp;
-
-                    break;
-            
-                case 2:
-                        // let comp = new Ultrabook();
-                        // ultrabook = comp;
-
-                    break;
-            }
-            table.appendChild(CreateTr(comp.toString().split(" "), i));
+            let comp = computers[i];
+            let valuesString = `${comp._CP}$${comp._GP}$${comp._HardDrive}$${comp._Motherboard}$${comp._Keyboard}$${comp._Mouse}$${comp._Scalability}`;
+            table.appendChild(CreateContentRow(valuesString.split("$"), i));
         }
     });
-    
-    
 
-    // GET().then((result) => {
-
-    //     for (let i = 0; i < result.length; i++) { 
-        
-    //         table.appendChild(CreateTr(result[i].toString().split(" "), i));
-    //     }
-    // });
-    
-    // console.log(computers);
-
-    // for (const key in ultrabook) {
-    //     console.log(key);
-    // }
-
-    // console.log(ultrabook.NamesOfAllProps())
-
-    let columns = [ "Процессор", 
-                    "Видеокарта", 
-                    "Жесткий диск", 
-                    "Материнская плата",
-                    "Клавиатура", 
-                    "Мышь",
-                    "Масштабирование", 
-                    "Действия"];
-    
-    for (let i = 0; i < columns.length; i++) {
-
-        tHeadRow.appendChild(CreateTd(columns[i]));
-    }
-    table.appendChild(tHeadRow);
-
-
+    table.appendChild(CreateRow("th", columns));
     mainSection.appendChild(table);
+
+    let butDel = document.querySelector("#Del0");
+    console.log(butDel);
+    // butDel.addEventListener("click", function () {
+        
+    //     console.log("Del0");
+    // });
+
+    // let dels = document.querySelectorAll('a[id^="Del"]').forEach((node) => {
+
+    //     node.addEventListener("click", function() {
+
+    //         let id = new String(this.id).replace("Del", "");
+    
+    //         console.log(`${this.id}`);
+    //     });
+    // }) 
+    // console.log(document.querySelector(`a[id^='Del']`));
 };

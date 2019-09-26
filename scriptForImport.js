@@ -158,7 +158,10 @@ export function CreateBtn(className, IdName, link, text) {
     btn.id = IdName;
     btn.text = text;
     btn.className = className;
-    btn.href = link;
+    if (link != "") {
+
+        btn.href = link;
+    }
     return btn;
 }
 
