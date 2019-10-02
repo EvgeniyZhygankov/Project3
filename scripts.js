@@ -1,4 +1,4 @@
-import { CreateBtn, GETAsync } from "./scriptForImport.js";
+import { CreateBtn, $, GetAllAsync } from "./scriptForImport.js";
 
 function CreateCell(type, innerString) {
     
@@ -12,7 +12,7 @@ function CreateRow(cellType, columns) {
     let tr = document.createElement("tr");
     for (let i = 0; i < columns.length; i++) {
         
-        tr.appendChild(CreateCell(cellType, columns[i]))
+        tr.appendChild(CreateCell(cellType, columns[i]));
     }
     return tr;
 }
@@ -23,7 +23,7 @@ function CreateContentRow(innerStrings, compId) {
 
     let tdActions = document.createElement("td");
     tdActions.appendChild(CreateBtn("btn", `Del${compId}`, "", "Удалить"));
-    tdActions.appendChild(CreateBtn("btn", `Edit${compId}`, "#", "Редактировать"));
+    tdActions.appendChild(CreateBtn("btn", `Edit${compId}`, `./EditElement/EditElement.html?id=${compId}`, "Редактировать"));
     tdActions.appendChild(CreateBtn("btn", `Details${compId}`, "#", "Подробно"));
 
     tr.appendChild(tdActions);
@@ -31,40 +31,54 @@ function CreateContentRow(innerStrings, compId) {
     return tr;
 }
 
-window.onload = function () {
+function CreateTableWithData(table, allComputers) {
 
-    const mainSection = document.querySelector("section");
-    const table = document.createElement("table");
+    table = document.createElement("table");
     const columns = [ "Процессор", "Видеокарта", "Жесткий диск", "Материнская плата", "Клавиатура", "Мышь", "Масштабирование", "Действия"];
-
-    GETAsync().then((computers) => {
-
-        for (let i = 0; i < computers.length; i++) { 
-        
-            let comp = computers[i];
-            let valuesString = `${comp._CP}$${comp._GP}$${comp._HardDrive}$${comp._Motherboard}$${comp._Keyboard}$${comp._Mouse}$${comp._Scalability}`;
-            table.appendChild(CreateContentRow(valuesString.split("$"), i));
-        }
-    });
-
     table.appendChild(CreateRow("th", columns));
-    mainSection.appendChild(table);
-
-    let butDel = document.querySelector("#Del0");
-    console.log(butDel);
-    // butDel.addEventListener("click", function () {
+    for (let i = 0; i < allComputers.length; i++) { 
         
-    //     console.log("Del0");
-    // });
-
-    // let dels = document.querySelectorAll('a[id^="Del"]').forEach((node) => {
-
-    //     node.addEventListener("click", function() {
-
-    //         let id = new String(this.id).replace("Del", "");
+        let comp = allComputers[i];
+        let valuesString = `${comp._CP}$${comp._GP}$${comp._HardDrive}$${comp._Motherboard}$${comp._Keyboard}$${comp._Mouse}$${comp._Scalability}`;
+        table.appendChild(CreateContentRow(valuesString.split("$"), comp.id));
+    }
     
-    //         console.log(`${this.id}`);
-    //     });
-    // }) 
-    // console.log(document.querySelector(`a[id^='Del']`));
+    return table;
+}
+
+function btnDelete_Click() {
+                
+    let sure = confirm("Вы уверены, что хотите удалить элемент?");
+
+    if (sure) {
+        
+        let id = new String(this.id).replace("Del", "");
+
+        fetch(`http://localhost:3000/computers/${id}`, {
+            method: "Delete"
+        });
+    }
+}
+
+window.onload = function () {
+    
+    var allComputers;
+    const mainSection = $("section");
+    let table = document.createElement("table");
+
+    GetAllAsync()
+    .then((computers) => {
+
+        allComputers = computers;
+        table = CreateTableWithData(table, allComputers);
+        mainSection.appendChild(table);
+        
+        document.querySelectorAll('a[id^="Del"]').forEach((node) => {
+
+            node.addEventListener("click", btnDelete_Click);
+        });
+    })
+    .catch((error) => {
+        alert(error);
+    });
 };

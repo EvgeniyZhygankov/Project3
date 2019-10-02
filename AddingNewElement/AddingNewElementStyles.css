@@ -2,7 +2,8 @@ body, html, .main {
   margin: 0;
   padding: 0;
   width: 100%;
-  min-height: 2000px;
+  min-height: 1000px;
+  height: 100%;
   font-family: Montserrat;
   font-style: normal;
   font-size: 15px;
@@ -44,6 +45,8 @@ h1 {
 }
 
 section {
+  max-width: 80%;
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -54,7 +57,8 @@ section {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  height: 100%;
+  -ms-flex-item-align: center;
+      align-self: center;
   padding-top: 5%;
 }
 

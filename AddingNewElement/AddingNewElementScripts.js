@@ -1,61 +1,31 @@
-import { Ultrabook, CalcServer, CreateBtn } from "../scriptForImport.js";
+import { Ultrabook, CalcServer, $, GetInputsForProps, CreateFields } from "../scriptForImport.js";
 
-const computerTypes = document.querySelector(".computerTypes");
+const computerTypes = $(".computerTypes");
 
-const serversInputs = document.querySelectorAll(".calcServer");
-const ultrabooksInputs = document.querySelectorAll(".ultrabook");
+var newComp, 
+    currentComputerType, 
+    serversInputs, 
+    ultrabooksInputs;
+// const CPInput = $("#CPInput");
+// const GPInput = $("#GPInput");
+// const MBInput = $("#MBInput");
+// const HDInput = $("#HDInput");
+// const KBInput = $("#KBInput");
+// const MoInput = $("#MoInput");
+// const ScInput = $("#ScInput");
 
-var newComp;
-var currentComputerType;
+// const NMInput = $("#NMInput");
+// const TSInput = $("#TSInput");
 
-// берем нужные input со страницы
-const inputsNames = () => {
-
-    let blocks = document.querySelectorAll(".field");
-    let inputs = [];
-
-    for (let i = 0; i < blocks.length; i++) {
-        
-        let block = blocks[i];
-        for (let j = 0; j < block.childNodes.length; j++) {
-
-            if (block.style.display != "none") {
-
-                let idstr = block.childNodes[j].id;
-                
-                if (idstr != undefined && 
-                    idstr.includes("Input")) {
-
-                    inputs.push(block.childNodes[j]);
-                }
-            }
-        }
-    }
-
-    return inputs;
-};
-
-
-
-// const CPInput = document.querySelector("#CPInput");
-// const GPInput = document.querySelector("#GPInput");
-// const MBInput = document.querySelector("#MBInput");
-// const HDInput = document.querySelector("#HDInput");
-// const KBInput = document.querySelector("#KBInput");
-// const MoInput = document.querySelector("#MoInput");
-// const ScInput = document.querySelector("#ScInput");
-
-// const NMInput = document.querySelector("#NMInput");
-// const TSInput = document.querySelector("#TSInput");
-
-// const CoInput = document.querySelector("#CoInput");
-
-
+// const CoInput = $("#CoInput");
 
 window.onload = function() {
     
+    $("section").insertBefore(CreateFields(), $(".links"));
     computerTypes.addEventListener("change", ComputerTypes_OnChange);
-    document.querySelector("#Save").addEventListener("click", Save_Click);
+    $("#Save").addEventListener("click", Save_Click);
+    serversInputs = document.querySelectorAll(".calcServer");
+    ultrabooksInputs = document.querySelectorAll(".ultrabook");
     serversInputs.forEach(x => x.style.display = "none");
 
     // let main = document.createElement("div");
@@ -101,7 +71,7 @@ function ComputerTypes_OnChange() {
 
 function Save_Click() {
 
-    let propNames = inputsNames();
+    let propNames = GetInputsForProps();
     currentComputerType = computerTypes.options[computerTypes.selectedIndex].value;
     if (true) {
 
@@ -131,16 +101,14 @@ function Save_Click() {
         newComp.Mouse = propNames[5].value;
         newComp.Scalability = propNames[6].value;
 
-        let request = fetch("http://localhost:3000/computers", {
+        fetch("http://localhost:3000/computers", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
             },
             body: JSON.stringify(newComp)
         })
-        .then((res) => { console.log(res); });
-
-        //  let computers = GET();
-        //  console.log(computers[0].id);
+        .then((res) => { console.log(res); })
+        .catch((e) => { console.log(e); });
     }
 }

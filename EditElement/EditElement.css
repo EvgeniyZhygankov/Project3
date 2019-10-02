@@ -1,1 +1,313 @@
-/* No CSS *//*# sourceMappingURL=EditElement.css.map */
+body, html, .main {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 1000px;
+  height: 100%;
+  font-family: Montserrat;
+  font-style: normal;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 17px;
+  color: #777777;
+}
+
+.main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #2e2e2e;
+  color: #777777;
+}
+
+header {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+h1 {
+  margin-top: 100px;
+}
+
+section {
+  max-width: 80%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-item-align: center;
+      align-self: center;
+  padding-top: 5%;
+}
+
+table {
+  border: 3px solid #174c9b;
+}
+
+table tr td:last-child {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+tr:first-child {
+  background: #1a1a1a;
+}
+
+th, td {
+  padding: 15px;
+}
+
+.btn {
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  border: 3px solid #174c9b;
+  color: #777777;
+  background-color: #2e2e2e;
+}
+
+.btn:hover {
+  cursor: default;
+  background-color: #474747;
+}
+
+body, html, .main {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 1000px;
+  height: 100%;
+  font-family: Montserrat;
+  font-style: normal;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 17px;
+  color: #777777;
+}
+
+.main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #2e2e2e;
+  color: #777777;
+}
+
+header {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+h1 {
+  margin-top: 100px;
+}
+
+section {
+  max-width: 80%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-item-align: center;
+      align-self: center;
+  padding-top: 5%;
+}
+
+table {
+  border: 3px solid #174c9b;
+}
+
+table tr td:last-child {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+tr:first-child {
+  background: #1a1a1a;
+}
+
+th, td {
+  padding: 15px;
+}
+
+.btn {
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  border: 3px solid #174c9b;
+  color: #777777;
+  background-color: #2e2e2e;
+}
+
+.btn:hover {
+  cursor: default;
+  background-color: #474747;
+}
+
+section {
+  width: 30%;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  margin-left: 28%;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+select {
+  font-family: Montserrat;
+  font-style: normal;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 17px;
+  color: #777777;
+  border: 3px solid #174c9b;
+  background-color: #2e2e2e;
+  color: #777777;
+  height: 40px;
+  width: 100%;
+}
+
+select option {
+  width: 100%;
+  font-family: Montserrat;
+  font-style: normal;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 17px;
+  color: #777777;
+}
+
+input[type="text"] {
+  font-family: Montserrat;
+  font-style: normal;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 17px;
+  color: #777777;
+  width: 100px;
+  background: #2e2e2e;
+  border: 3px solid #174c9b;
+  margin: 10px 0;
+  height: 30px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+.links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.links > a:last-child {
+  margin-right: 0;
+}
+
+.btn {
+  margin: 10px 10px 0 0;
+}
+
+.field {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  width: 100%;
+}
+
+.field > p {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  margin-right: 5px;
+}
+
+.field > *:not(p) {
+  width: 400px;
+  margin: 0;
+}
+/*# sourceMappingURL=EditElement.css.map */

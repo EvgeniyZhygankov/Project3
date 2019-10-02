@@ -1,55 +1,28 @@
 {
   "computers": [
     {
-      "_name": "aw",
-      "_TouchScreen": "dawd",
-      "_ComputerType": "1",
-      "_CP": "wadaw",
-      "_GP": "awd",
-      "_Motherboard": "awd",
-      "_HardDrive": "awdaw",
-      "_Keyboard": "dawd",
-      "_Mouse": "a",
-      "_Scalability": "wdawd",
-      "id": 1
-    },
-    {
-      "_name": "",
-      "_TouchScreen": "",
-      "_ComputerType": "1",
-      "_CP": "",
-      "_GP": "",
-      "_Motherboard": "",
-      "_HardDrive": "",
-      "_Keyboard": "",
-      "_Mouse": "",
-      "_Scalability": "",
-      "id": 2
-    },
-    {
-      "_CoolingType": "",
+      "_CoolingType": "тип охлаждения вычислительного сервера",
       "_ComputerType": "2",
-      "_CP": "",
-      "_GP": "",
-      "_Motherboard": "",
-      "_HardDrive": "",
-      "_Keyboard": "",
-      "_Mouse": "",
-      "_Scalability": "",
-      "id": 3
+      "_CP": "123",
+      "_GP": "видеокарта вычислительного сервера",
+      "_Motherboard": "МАТЕРИНСКАЯ ПЛАТА вычислительного сервера",
+      "_HardDrive": "жесткий диск вычислительного сервера",
+      "_Keyboard": "клавиатура вычислительного сервера",
+      "_Mouse": "мышь вычислительного сервера",
+      "_Scalability": "масштабирование вычислительного сервера",
+      "id": 5
     },
     {
-      "_name": "Название1",
-      "_TouchScreen": "Сенсорный экран1",
-      "_ComputerType": "1",
-      "_CP": "Процессор1",
-      "_GP": "Видеокарта1",
-      "_Motherboard": "Материнская плата 1",
-      "_HardDrive": "Жесткий диск1",
-      "_Keyboard": "Клавиатура1",
-      "_Mouse": "Мышь1",
-      "_Scalability": "Масштабирование1",
-      "id": 4
+      "_CoolingType": "тип охлаждения",
+      "_ComputerType": "2",
+      "_CP": "Вычислительный сервер2",
+      "_GP": "Видеокарта2",
+      "_Motherboard": "Материснкая плата2",
+      "_HardDrive": "ЖК",
+      "_Keyboard": "К",
+      "_Mouse": "М",
+      "_Scalability": "Масштабирование",
+      "id": 6
     }
   ]
 }
