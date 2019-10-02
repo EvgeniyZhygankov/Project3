@@ -105,4 +105,13 @@ th, td {
   cursor: default;
   background-color: #474747;
 }
-/*# sourceMappingURL=styles.css.map */
+
+section > p {
+  padding: 10px 20px;
+  margin: 5px;
+}
+
+.links {
+  margin-top: 30px;
+}
+/*# sourceMappingURL=Details.css.map */

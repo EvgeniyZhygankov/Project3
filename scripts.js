@@ -24,7 +24,7 @@ function CreateContentRow(innerStrings, compId) {
     let tdActions = document.createElement("td");
     tdActions.appendChild(CreateBtn("btn", `Del${compId}`, "", "Удалить"));
     tdActions.appendChild(CreateBtn("btn", `Edit${compId}`, `./EditElement/EditElement.html?id=${compId}`, "Редактировать"));
-    tdActions.appendChild(CreateBtn("btn", `Details${compId}`, "#", "Подробно"));
+    tdActions.appendChild(CreateBtn("btn", `Details${compId}`, `./Details/Details.html?id=${compId}`, "Подробно"));
 
     tr.appendChild(tdActions);
 
@@ -39,7 +39,7 @@ function CreateTableWithData(table, allComputers) {
     for (let i = 0; i < allComputers.length; i++) { 
         
         let comp = allComputers[i];
-        let valuesString = `${comp._CP}$${comp._GP}$${comp._HardDrive}$${comp._Motherboard}$${comp._Keyboard}$${comp._Mouse}$${comp._Scalability}`;
+        let valuesString = `${comp.centralProcessor}$${comp.graphicalProcessor}$${comp.hardDrive}$${comp.motherboard}$${comp.keyboard}$${comp.mouse}$${comp.scalability}`;
         table.appendChild(CreateContentRow(valuesString.split("$"), comp.id));
     }
     

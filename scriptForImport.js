@@ -1,67 +1,67 @@
 export class Computer {
 
     get ComputerType() {
-        return this._ComputerType;
+        return this.computerType;
     }
 
     set ComputerType(value) {
-        this._ComputerType = value;
+        this.computerType = value;
     }
 
     get CP() {
-        return this._CP;
+        return this.centralProcessor;
     }
 
     set CP(value) {
-        this._CP = value;
+        this.centralProcessor = value;
     }
 
     get GP() {
-        return this._GP;
+        return this.graphicalProcessor;
     }
 
     set GP(value) {
-        this._GP = value;
+        this.graphicalProcessor = value;
     }
 
     get HardDrive() {
-        return this._HardDrive;
+        return this.hardDrive;
     }
 
     set HardDrive(value) {
-        this._HardDrive = value;
+        this.hardDrive = value;
     }
 
     get Motherboard() {
-        return this._Motherboard;
+        return this.motherboard;
     }
 
     set Motherboard(value) {
-        this._Motherboard = value;
+        this.motherboard = value;
     }
 
     get Keyboard() {
-        return this._Keyboard;
+        return this.keyboard;
     }
 
     set Keyboard(value) {
-        this._Keyboard = value;
+        this.keyboard = value;
     }
 
     get Mouse() {
-        return this._Mouse;
+        return this.mouse;
     }
 
     set Mouse(value) {
-        this._Mouse = value;
+        this.mouse = value;
     }
 
     get Scalability() {
-        return this._Scalability
+        return this.scalability
     }
 
     set Scalability(value) {
-        this._Scalability = value;
+        this.scalability = value;
     }
 
     toString() {
@@ -69,7 +69,7 @@ export class Computer {
         return `${this.ComputerType} ${this.CP} ${this.GP} ${this.HardDrive} ${this.Motherboard} ${this.Keyboard} ${this.Mouse} ${this.Scalability}`;
     }
 
-    NamesOfAllProps() {
+    static NamesOfAllProps() {
         return ["Процессор", 
                 "Видеокарта", 
                 "Жесткий диск", 
@@ -88,19 +88,19 @@ export class Ultrabook extends Computer {
     }
 
     get Name() {
-        return this._name;
+        return this.name;
     }
 
     set Name(value) {
-        this._name = value;
+        this.name = value;
     }
 
     get TouchScreen() {
-        return this._TouchScreen;
+        return this.touchScreen;
     }
     
     set TouchScreen(value) {
-        this._TouchScreen = value;
+        this.touchScreen = value;
     }
 
     toString() {
@@ -108,7 +108,7 @@ export class Ultrabook extends Computer {
         return `${super.toString()} ${this.Name} ${this.TouchScreen}`;
     }
 
-    NamesOfAllProps() {
+    static NamesOfAllProps() {
          
         let names = ["Название ультрабука", "Наличие сенсорного экрана"];
         names.unshift(...super.NamesOfAllProps());
@@ -128,23 +128,15 @@ export class CalcServer extends Computer {
     }
     
     set CoolingType(value) {
-        this._CoolingType = value;
+        this.coolingType = value;
     }
-
-    // get () {
-    //     return _
-    // }
-    
-    // set (value) {
-    //     this._ = value
-    // }
 
     toString() {
 
         return `${super.toString()} ${this.CoolingType}`;
     }
 
-    NamesOfAllProps() {
+    static NamesOfAllProps() {
          
         let names = ["Тип охлаждения", ""];
         names.unshift(...super.NamesOfAllProps());
@@ -183,9 +175,36 @@ export async function GetComputerByIdAsync(id) {
     return computer;
 }
 
+export function CreateP(text) {
+        
+    let p = document.createElement("p");
+    p.innerText = text;
+    return p;
+}
+
+export function CreateInput(id) {
+   
+   let input = document.createElement("input");
+   input.type = "text";
+   input.id = id;
+   return input;
+}
+
+export function CreateField(p, input, additionalClass = "") {
+   
+   let cont = document.createElement("div");
+   cont.appendChild(p);
+   cont.appendChild(input);
+   cont.classList.add("field");
+
+   if (additionalClass != "")
+       cont.classList.add(additionalClass);
+
+   return cont;
+}
+
 export function CreateFields() {
 
-    // console.log(comp);
     let props = [
         { rus: "Процессор", id: "CPInput" },
         { rus: "Видеокарта", id: "GPInput" },
@@ -199,43 +218,15 @@ export function CreateFields() {
         { rus: "Тип охлаждения", id: "CPInput"},
     ];
 
-    function CreateP(text) {
-        
-         let p = document.createElement("p");
-         p.innerText = text;
-         return p;
-    }
-
-    function CreateInput(id) {
-        
-        let input = document.createElement("input");
-        input.type = "text";
-        input.id = id;
-        return input;
-    }
-
-    function CreateField(text, inputId, additionalClass = "") {
-        
-        let cont = document.createElement("div");
-        cont.appendChild(CreateP(text));
-        cont.appendChild(CreateInput(inputId));
-        cont.classList.add("field");
-
-        if (additionalClass != "")
-            cont.classList.add(additionalClass);
-
-        return cont;
-    }
-
     let container = document.createElement("div");
     
     for (let index = 0; index < props.length - 3; index++) {
         const item = props[index];
-        container.appendChild(CreateField(item.rus, item.id));
+        container.appendChild(CreateField(CreateP(item.rus), CreateInput(item.id)));
     }
-    container.appendChild(CreateField(props[7].rus, props[7].id, "ultrabook"));
-    container.appendChild(CreateField(props[8].rus, props[8].id, "ultrabook"));
-    container.appendChild(CreateField(props[9].rus, props[9].id, "calcServer"));
+    container.appendChild(CreateField(CreateP(props[7].rus), CreateInput(props[7].id), "ultrabook"));
+    container.appendChild(CreateField(CreateP(props[8].rus), CreateInput(props[8].id), "ultrabook"));
+    container.appendChild(CreateField(CreateP(props[9].rus), CreateInput(props[9].id), "calcServer"));
     return container;
 }
 
@@ -265,3 +256,11 @@ export const GetInputsForProps = () => {
 
     return inputs;
 };
+
+export function GetIdFromURL() {
+
+    let url = window.location.href;
+    let indexOfParam = url.indexOf(`?`);
+    let params = url.slice(indexOfParam + 1);
+    return params.split("=")[1];
+}

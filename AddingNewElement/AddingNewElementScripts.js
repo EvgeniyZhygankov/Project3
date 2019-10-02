@@ -108,7 +108,6 @@ function Save_Click() {
             },
             body: JSON.stringify(newComp)
         })
-        .then((res) => { console.log(res); })
         .catch((e) => { console.log(e); });
     }
 }

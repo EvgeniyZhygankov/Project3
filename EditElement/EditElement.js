@@ -1,14 +1,13 @@
-import { $, CreateFields, GetInputsForProps, GetComputerByIdAsync, Ultrabook, CalcServer } from "../scriptForImport.js";
+import { $, CreateFields, GetInputsForProps, GetComputerByIdAsync, Ultrabook, CalcServer, GetIdFromURL } from "../scriptForImport.js";
 
 var curComputer, 
     inputs;
 
+
+
 window.onload = function () {
 
-    let url = window.location.href;
-    let indexOfParam = url.indexOf(`?`);
-    let params = url.slice(indexOfParam + 1);
-    let id = params.split("=")[1];
+    let id = GetIdFromURL();
 
     GetComputerByIdAsync(id)
     .then((comp) => {
@@ -21,29 +20,29 @@ window.onload = function () {
         let serversInputs = document.querySelectorAll(".calcServer");
         let ultrabooksInputs = document.querySelectorAll(".ultrabook");
 
-        switch (comp._ComputerType) {
+        switch (comp.computerType) {
 
             case "1":
                 serversInputs.forEach(x => x.style.display = "none");
                 ultrabooksInputs.forEach(x => x.style.display = "flex");
-                inputs[7].value = comp._name;
-                inputs[8].value = comp._TouchScreen;
+                inputs[7].value = comp.name;
+                inputs[8].value = comp.touchScreen;
                 break;
         
             case "2":
                 serversInputs.forEach(x => x.style.display = "flex");
                 ultrabooksInputs.forEach(x => x.style.display = "none");
-                inputs[9].value = comp._CoolingType;
+                inputs[9].value = comp.coolingType;
                 break;
         }
 
-        inputs[0].value = comp._CP;
-        inputs[1].value = comp._GP;
-        inputs[2].value = comp._Motherboard;
-        inputs[3].value = comp._HardDrive;
-        inputs[4].value = comp._Keyboard;
-        inputs[5].value = comp._Mouse;
-        inputs[6].value = comp._Scalability;
+        inputs[0].value = comp.centralProcessor;
+        inputs[1].value = comp.graphicalProcessor;
+        inputs[2].value = comp.motherboard;
+        inputs[3].value = comp.hardDrive;
+        inputs[4].value = comp.keyboard;
+        inputs[5].value = comp.mouse;
+        inputs[6].value = comp.scalability;
     })
     .catch((e) => {
         
@@ -53,7 +52,7 @@ window.onload = function () {
 
 function Save_Click() {
     
-    let currentComputerType = curComputer._ComputerType;
+    let currentComputerType = curComputer.computerType;
     let id = curComputer.id;
     if (true) {
 
