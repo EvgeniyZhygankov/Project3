@@ -3,7 +3,6 @@ body, html, .main {
   padding: 0;
   width: 100%;
   min-height: 1000px;
-  height: 100%;
   font-family: Montserrat;
   font-style: normal;
   font-size: 15px;
@@ -112,7 +111,6 @@ body, html, .main {
   padding: 0;
   width: 100%;
   min-height: 1000px;
-  height: 100%;
   font-family: Montserrat;
   font-style: normal;
   font-size: 15px;
