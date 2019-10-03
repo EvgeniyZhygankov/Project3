@@ -1,9 +1,6 @@
 import { $, CreateFields, GetInputsForProps, GetComputerByIdAsync, Ultrabook, CalcServer, GetIdFromURL } from "../scriptForImport.js";
 
-var curComputer, 
-    inputs;
-
-
+var curComputer, inputs;
 
 window.onload = function () {
 

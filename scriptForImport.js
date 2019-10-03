@@ -203,7 +203,7 @@ export function CreateField(p, input, additionalClass = "") {
    return cont;
 }
 
-export function CreateFields() {
+export function CreateFields() { 
 
     let props = [
         { rus: "Процессор", id: "CPInput" },

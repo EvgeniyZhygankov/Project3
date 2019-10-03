@@ -6,18 +6,6 @@ var newComp,
     currentComputerType, 
     serversInputs, 
     ultrabooksInputs;
-// const CPInput = $("#CPInput");
-// const GPInput = $("#GPInput");
-// const MBInput = $("#MBInput");
-// const HDInput = $("#HDInput");
-// const KBInput = $("#KBInput");
-// const MoInput = $("#MoInput");
-// const ScInput = $("#ScInput");
-
-// const NMInput = $("#NMInput");
-// const TSInput = $("#TSInput");
-
-// const CoInput = $("#CoInput");
 
 window.onload = function() {
     
@@ -27,30 +15,6 @@ window.onload = function() {
     serversInputs = document.querySelectorAll(".calcServer");
     ultrabooksInputs = document.querySelectorAll(".ultrabook");
     serversInputs.forEach(x => x.style.display = "none");
-
-    // let main = document.createElement("div");
-    // main.className = "main";
-
-    // let header = document.createElement("header");
-    // let h1 = document.createElement("h1");
-    // h1.innerText = "Создание нового компьютера";
-
-    // header.appendChild(h1);
-
-    // main.appendChild(header);
-
-    // let section = document.createElement("section");
-
-
-
-    // let links = document.createElement("div");
-    // links.className = "links";
-
-    // links.appendChild(CreateBtn("btn", "", "", "Сохранить"));
-    // links.appendChild(CreateBtn("btn", "", "/Project3/index.html", "Вернуться на главную страницу"));
-
-    // main.appendChild(links);
-    // document.body.appendChild(main);
 }
 
 function ComputerTypes_OnChange() {

@@ -7,7 +7,7 @@ window.onload = function () {
     GetComputerByIdAsync(id)
     .then((comp) => {
 
-        let propsP = [];
+        let propsP = []; // массив из <p> где в каждой будет название свойства и значение
         switch (comp.computerType) {
 
             case "1":
